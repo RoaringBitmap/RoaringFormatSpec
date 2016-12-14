@@ -65,6 +65,10 @@ The containers are then stored one after the other.
 - Bitset containers are stored using exactly 8KB using a bitset serialized with 64-bit words.
 - A run container is serialized as a 16-bit integer indicating the number of runs, followed by a pair of 16-bit values for each run. Thus a run container with x runs will use 2 + 4 x bytes. Each pair of 16-bit values contains the starting index of the run followed by the length of the run minus 1. That is,  we interleave values and lengths, so that if you have the values 11,12,13,14,15, you store that as 11,4 where 4 means that beyond 11 itself, there are  4 contiguous values that follow. Other example: e.g., 1, 10, 20,0, 31,2 would be a concise representation of 1, 2, ..., 11, 20, 31, 32, 33
 
+## Testing
+
+At a minimum, all Roaring implementations should be able to parse the two files in the ``testdata`` directory, see the associated README.md file found in the directory.
+
 ## Reference implementations
 
 - C: https://github.com/RoaringBitmap/CRoaring
