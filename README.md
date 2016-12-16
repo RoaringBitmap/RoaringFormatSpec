@@ -53,10 +53,13 @@ cardinality of up to 4096 indicates an array container whereas a cardinality abo
 
 ### 3. Offset header
 
-If and only if the cookie took value SERIAL_COOKIE *and* there are at least
-NO_OFFSET_THRESHOLD, then we store for each container (using a 32-bit value)
-the location (in bytes) of the container from the beginning of the stream (starting
-with the cookie).
+If and only one of these is true
+
+1. the cookie takes value SERIAL_COOKIE_NO_RUNCONTAINER
+2. the cookie takes the value SERIAL_COOKIE *and* there are at least NO_OFFSET_THRESHOLD containers, 
+
+then we store  (using a 32-bit value) the location (in bytes) of the container from the beginning of the stream (starting
+with the cookie) for each container.
 
 ### 4. Container storage
 
