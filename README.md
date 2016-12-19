@@ -6,7 +6,7 @@ This specification assumes that you are familiar with Roaring bitmaps. Please re
 
 - Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience (to appear) (arXiv:1603.06549)
 
-Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536).
+Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
 
 ## General layout
 
@@ -29,7 +29,7 @@ Throughout, we use the following constants :
 
 The cookie header spans either 32 bits or 64 bits.
 
-1. If the first 32 bits take the value SERIAL_COOKIE_NO_RUNCONTAINER, then no container part of the Roaring bitmap can be of type "run" (only array and bitset containers are allowed). When the cookie has this particular value, the next 32 bits are used to store an integer representing the number of containers.
+1. If the first 32 bits take the value SERIAL_COOKIE_NO_RUNCONTAINER, then no container part of the Roaring bitmap can be of type "run" (only array and bitset containers are allowed). When the cookie has this particular value, the next 32 bits are used to store an integer representing the number of containers. If the bitmap is empty (i.e., it has no container), then you should choose this cookie header.
 2. The 16 least significant bits of the 32-bit cookie have value SERIAL_COOKIE. In that case, the 16 most significant bits of the 32-it cookie are used to store the number of containers minus 1. That is, if you shift right by 16 the cookie and add 1, you get the number of containers. Let ``size`` be the number of containers. Then we store ``(size + 7) / 8`` bytes, following the initial 32 bits, as a bitset to indicate whether each of the containers is a run container (bit set to 1) or not (bit set to 0). The first (least significant) bit of the first byte corresponds to the first stored container and so forth.
 
 Thus if follows that the least significant 16 bits of the first 32 bits of a serialized bitmaps should either have the value SERIAL_COOKIE_NO_RUNCONTAINER or the value SERIAL_COOKIE. In other cases, we should abort the decoding.
