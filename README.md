@@ -74,8 +74,10 @@ At a minimum, all Roaring implementations should be able to parse the two files 
 
 ## Reference implementations
 
-- C: https://github.com/RoaringBitmap/CRoaring
+- C/C++: https://github.com/RoaringBitmap/CRoaring
 - Java: https://github.com/RoaringBitmap/RoaringBitmap
+- Go: https://github.com/RoaringBitmap/roaring
+
 
 ## Sample Java source code
 
