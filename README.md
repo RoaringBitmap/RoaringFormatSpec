@@ -1,6 +1,18 @@
 # RoaringFormatSpec : specification of the compressed-bitmap Roaring format
 
-Roaring bitmaps are used in a wide range of system, such as Druid, Apache Spark and so forth. Many of these systems use the following interoperable format.
+
+
+Roaring bitmaps are used by several important systems:
+
+*   [Apache Lucene](http://lucene.apache.org/core/) and derivative systems such as Solr and [Elastic](https://www.elastic.co/),
+*   Metamarkets' [Druid](http://druid.io/),
+*   [Apache Spark](http://spark.apache.org),
+*   [Netflix Atlas](https://github.com/Netflix/atlas),
+*   [LinkedIn Pinot](https://github.com/linkedin/pinot/wiki),
+*   [Whoosh](https://pypi.python.org/pypi/Whoosh/),
+*   eBay's [Apache Kylin](http://kylin.io).
+
+Many of these systems use the following interoperable format.
 
 This specification assumes that you are familiar with Roaring bitmaps. Please refer to the following paper for details on the design rationale:
 
