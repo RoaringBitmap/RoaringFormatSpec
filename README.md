@@ -18,7 +18,8 @@ This specification assumes that you are familiar with Roaring bitmaps. Please re
 
 - Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience (to appear) (arXiv:1603.06549)
 
-Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
+Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. Thus a Roaring bitmap can contain up to 4294967296 integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
+
 
 ## General layout
 
@@ -191,3 +192,10 @@ At a minimum, all Roaring implementations should be able to parse the two files 
         buf += container_write(ra->containers[k], ra->typecodes[k], buf);
     }
 ```
+
+## Unsigned integers in Java
+
+
+Java lacks native unsigned integers, but integers are still considered to be unsigned within Roaring, and ordered  according to  ``Integer.compareUnsigned``. 
+
+For integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
