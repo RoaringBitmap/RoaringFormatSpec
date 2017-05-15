@@ -66,7 +66,7 @@ cardinality of up to 4096 indicates an array container whereas a cardinality abo
 
 ### 3. Offset header
 
-If and only one of these is true
+If and only if one of these is true
 
 1. the cookie takes value SERIAL_COOKIE_NO_RUNCONTAINER
 2. the cookie takes the value SERIAL_COOKIE *and* there are at least NO_OFFSET_THRESHOLD containers, 
