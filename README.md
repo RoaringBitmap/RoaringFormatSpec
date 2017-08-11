@@ -42,6 +42,10 @@ Throughout, we use the following constants :
 - SERIAL_COOKIE = 12347,
 - NO_OFFSET_THRESHOLD = 4
 
+The below diagram represents a storage file containing both run containers and the offset header.
+
+![Format diagram](diagram.png)
+
 ### 1. Cookie header
 
 The cookie header spans either 32 bits or 64 bits.
