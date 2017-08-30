@@ -7,6 +7,8 @@ Roaring bitmaps are used by several important systems:
 *   [Apache Lucene](http://lucene.apache.org/core/) and derivative systems such as Solr and [Elastic](https://www.elastic.co/),
 *   Metamarkets' [Druid](http://druid.io/),
 *   [Apache Spark](http://spark.apache.org),
+*   [Apache Hive](http://hive.apache.org),
+*   [Apache Tez](http://tez.apache.org),
 *   [Netflix Atlas](https://github.com/Netflix/atlas),
 *   [LinkedIn Pinot](https://github.com/linkedin/pinot/wiki),
 *   [OpenSearchServer](http://www.opensearchserver.com),
@@ -23,6 +25,8 @@ This specification assumes that you are familiar with Roaring bitmaps. Please re
 - Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience (to appear) (arXiv:1603.06549)
 
 Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. Thus a Roaring bitmap can contain up to 4294967296 integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
+
+There are extensions of Roaring Bitmaps for storing 64-bit integers. However, the current format specification only relates to 32-bit integers.
 
 
 ## General layout
