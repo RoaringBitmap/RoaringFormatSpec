@@ -15,6 +15,7 @@ Roaring bitmaps are used by several important systems:
 *   [Cloud Torrent](https://github.com/jpillora/cloud-torrent),
 *   [Whoosh](https://pypi.python.org/pypi/Whoosh/),
 *   [Pilosa](https://www.pilosa.com/),
+*   [Jive Miru](https://github.com/jivesoftware/miru),
 *   [Microsoft Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/),
 *   eBay's [Apache Kylin](http://kylin.io).
 
