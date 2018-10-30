@@ -23,7 +23,7 @@ Many of these systems use the following interoperable format.
 
 This specification assumes that you are familiar with Roaring bitmaps. Please refer to the following paper for details on the design rationale:
 
-- Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience (to appear) (arXiv:1603.06549)
+- Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience, Software: Practice and Experience Volume 46, Issue 11, pages 1547-1569, November 2016
 
 Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. Thus a Roaring bitmap can contain up to 4294967296 integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
 
