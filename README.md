@@ -231,7 +231,7 @@ All words are written using little endian encoding.
 
 ## Unsigned longs in Java
 
-Java lacks native unsigned longs, but longs are still considered to be unsigned within Roaring, and ordered  according to  ``Long.compareUnsigned``. 
+Java lacks native unsigned longs, but longs are still considered to be unsigned within Roaring, and ordered according to ``Long.compareUnsigned``. 
 
 For long in [0,18446744073709551616], the unsigned and signed longs are undistinguisable since Java relies a 64-bit two's complement format for its ``long`` type.
 
@@ -240,4 +240,4 @@ For long in [0,18446744073709551616], the unsigned and signed longs are undistin
 Java Roaring bitmaps implementation offers an ART-based 64-bits implementation. It may reach better performances (compression and/or computation). But
 as of 2022-11, it is not compatible with this Serialization format.
 
-Java Roaring bitmaps implementation offers an Map-based 64-bits implementation hanling signed longs. It is not compatible with this Serialization format.
+Java Roaring bitmaps implementation offers an Map-based 64-bits implementation handling signed longs. It is not compatible with this Serialization format.
