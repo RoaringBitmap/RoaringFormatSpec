@@ -208,7 +208,31 @@ At a minimum, all Roaring implementations should be able to parse the two files 
 
 ## Unsigned integers in Java
 
-
 Java lacks native unsigned integers, but integers are still considered to be unsigned within Roaring, and ordered  according to  ``Integer.compareUnsigned``. 
 
 For integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
+
+# Extention for 64B implementations
+
+Some Roaring bitmap implementations may offer a 64-bits implementation. This section proposes a portable format, compatible with some (but not all) 
+64-bits implementations. This format is naturally compatible with implementations base on a conventional
+red-black-tree. The keys would be 32-bit integers representing the most significant 32~bits of elements whereas the values of the tree are 32-bit Roaring 
+bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a set of elements.
+
+## General layout
+
+All words are written using little endian encoding.
+
+~The layout is designed so that random access to the data is possible without materializing the bitmap in memory while being storage efficient.~
+(This may be true, but no implementation demonstrates this yet.)
+
+- Write as long/uint64 the number of buckets (a.k.a the number of distinct keys being the most significant 32~bits of elements)
+- Iterate through buckets by: 
+- first writing as int/uint32 the most significant 32~bits of the bucket
+- second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
+
+## Unsigned longs in Java
+
+Java lacks native unsigned longs, but longs are still considered to be unsigned within Roaring, and ordered  according to  ``Long.compareUnsigned``. 
+
+For long in [0,2^63-1], the unsigned and signed longs are undistinguisable since Java relies a 64-bit two's complement format for its ``long`` type.
