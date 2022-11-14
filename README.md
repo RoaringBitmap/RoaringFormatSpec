@@ -225,7 +225,7 @@ bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a se
 All words are written using little endian encoding.
 
 - Write as long/uint64 the distinct number of buckets (in [0,2^64-1]) (a.k.a the number of distinct keys being the most significant 32~bits of elements)
-- Iterate through buckets by: 
+- Iterate through buckets ordered by increasing bucket by: 
 - first writing as int/uint32 the most significant 32~bits of the bucket (in [0,2^32-1])
 - second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
 
