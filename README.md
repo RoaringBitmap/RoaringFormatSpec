@@ -215,17 +215,16 @@ For integers in [0,2147483647], the unsigned and signed integers are undistingui
 # Extention for 64B implementations
 
 Some Roaring bitmap implementations may offer a 64-bits implementation. This section proposes a portable format, compatible with some (but not all) 
-64-bits implementations. This format is naturally compatible with implementations base on a conventional
-red-black-tree (as the serialization formats is similar to the in-memory layout). The keys would be 32-bit integers representing the most significant 
-32~bits of elements whereas the values of the tree are 32-bit Roaring 
-bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a set of elements.
+64-bits implementations. This format is naturally compatible with implementations based on a conventional red-black-tree (as the serialization format 
+is similar to the in-memory layout). The keys would be 32-bit integers representing the most significant 32~bits of elements whereas the values of the 
+tree are 32-bit Roaring bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a set of elements.
 
 ## General layout
 
 All words are written using little endian encoding.
 
-- Write as long/uint64 the distinct number of buckets (in [0,2^64-1]) (a.k.a the number of distinct keys being the most significant 32~bits of elements)
-- Iterate through buckets ordered by increasing bucket by: 
+- Write as long/uint64 the distinct number of buckets (restricted to integers in [0,4294967295]) (a.k.a the number of distinct keys being the most significant 32~bits of elements, leading to a two zero bytes padding).
+- Iterate through buckets ordered by increasing keys (as unsigned integers), for each: 
 - first writing as int/uint32 the most significant 32~bits of the bucket (in [0,2^32-1])
 - second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
 
