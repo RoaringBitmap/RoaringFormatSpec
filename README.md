@@ -208,7 +208,36 @@ At a minimum, all Roaring implementations should be able to parse the two files 
 
 ## Unsigned integers in Java
 
-
 Java lacks native unsigned integers, but integers are still considered to be unsigned within Roaring, and ordered  according to  ``Integer.compareUnsigned``. 
 
-For integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
+For 32-bit integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
+
+# Extention for 64-bit implementations
+
+Some Roaring bitmap implementations may offer a 64-bit implementation. This section proposes a portable format, compatible with some (but not all) 
+64-bit implementations. This format is naturally compatible with implementations based on a conventional red-black-tree (as the serialization format 
+is similar to the in-memory layout). The keys would be 32-bit integers representing the most significant 32~bits of elements whereas the values of the 
+tree are 32-bit Roaring bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a set of elements.
+
+## General layout
+
+All words are written using little endian encoding.
+
+- Write as long/uint64 the distinct number of buckets (restricted to integers in [0,4294967295]) (a.k.a the number of distinct keys being the most significant 32~bits of elements, leading to a four zero bytes padding).
+- Iterate through buckets ordered by increasing keys (as unsigned integers), for each: 
+- first writing as int/uint32 the most significant 32~bits of the bucket (in [0,2^32-1])
+- second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
+
+## Unsigned longs in Java
+
+Java lacks native unsigned longs, but longs are still considered to be unsigned within Roaring, and ordered according to ``Long.compareUnsigned``. 
+
+For 64-bit integers in [0,18446744073709551616], the unsigned and signed longs are undistinguisable since Java relies a 64-bit two's complement format for its ``long`` type.
+
+## Alternative 64-bit implementations
+
+Java Roaring bitmaps implementation offers an [ART-based 64-bit implementation](https://github.com/RoaringBitmap/RoaringBitmap/blob/master/RoaringBitmap/src/main/java/org/roaringbitmap/longlong/Roaring64Bitmap.java).
+It may reach better performances (compression and/or computation). But as of 2022-11, it is not compatible with this Serialization format. 
+
+Java Roaring bitmaps implementation offers an [``Map``-based 64-bit implementation](https://github.com/RoaringBitmap/RoaringBitmap/blob/master/RoaringBitmap/src/main/java/org/roaringbitmap/longlong/Roaring64NavigableMap.java) handling signed longs.
+It is not compatible with this serialization format (which does not handle signed keys).
