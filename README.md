@@ -1,5 +1,26 @@
-# RoaringFormatSpec : specification of the compressed-bitmap Roaring format
+# RoaringFormatSpec : specification of the compressed-bitmap Roaring formats
 
+
+
+
+- [Standard 32-bit Roaring Bitmap](#standard-32-bit-roaring-bitmap)
+  * [General layout](#general-layout)
+    + [1. Cookie header](#1-cookie-header)
+    + [2. Descriptive header](#2-descriptive-header)
+    + [3. Offset header](#3-offset-header)
+    + [4. Container storage](#4-container-storage)
+  * [Testing](#testing)
+  * [Reference implementations](#reference-implementations)
+  * [Sample Java source code](#sample-java-source-code)
+  * [Sample C source code](#sample-c-source-code)
+  * [Unsigned integers in Java](#unsigned-integers-in-java)
+- [Extention for 64-bit implementations](#extention-for-64-bit-implementations)
+  * [General layout](#general-layout-1)
+  * [Unsigned longs in Java](#unsigned-longs-in-java)
+  * [Alternative 64-bit implementations](#alternative-64-bit-implementations)
+
+
+# Standard 32-bit Roaring Bitmap
 
 
 Roaring bitmaps are used by several important systems:
@@ -26,9 +47,6 @@ This specification assumes that you are familiar with Roaring bitmaps. Please re
 - Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience, Software: Practice and Experience Volume 46, Issue 11, pages 1547-1569, November 2016
 
 Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. Thus a Roaring bitmap can contain up to 4294967296 integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
-
-There are extensions of Roaring Bitmaps for storing 64-bit integers. However, the current format specification only relates to 32-bit integers.
-
 
 ## General layout
 
