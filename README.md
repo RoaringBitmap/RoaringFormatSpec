@@ -14,7 +14,7 @@
   * [Sample Java source code](#sample-java-source-code)
   * [Sample C source code](#sample-c-source-code)
   * [Unsigned integers in Java](#unsigned-integers-in-java)
-- [Extention for 64-bit implementations](#extention-for-64-bit-implementations)
+- [Extension for 64-bit implementations](#extension-for-64-bit-implementations)
   * [General layout](#general-layout-1)
   * [Unsigned longs in Java](#unsigned-longs-in-java)
   * [Alternative 64-bit implementations](#alternative-64-bit-implementations)
@@ -92,7 +92,7 @@ After scanning the descriptive header, we know the type of each container. Indee
 if the cookie took value SERIAL_COOKIE, then we had a bitset telling us which containers
 are run containers; otherwise, we know that there are no run containers. For the containers
 that are not run containers, then we use the cardinality to determine the type: a
-cardinality of up to 4096 indicates an array container whereas a cardinality above
+cardinality of up and including 4096 indicates an array container whereas a cardinality above
 4096 indicates a bitset container.
 
 ### 3. Offset header
@@ -230,7 +230,7 @@ Java lacks native unsigned integers, but integers are still considered to be uns
 
 For 32-bit integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
 
-# Extention for 64-bit implementations
+# Extension for 64-bit implementations
 
 Some Roaring bitmap implementations may offer a 64-bit implementation. This section proposes a portable format, compatible with some (but not all) 
 64-bit implementations. This format is naturally compatible with implementations based on a conventional red-black-tree (as the serialization format 
