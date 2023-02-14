@@ -92,7 +92,7 @@ After scanning the descriptive header, we know the type of each container. Indee
 if the cookie took value SERIAL_COOKIE, then we had a bitset telling us which containers
 are run containers; otherwise, we know that there are no run containers. For the containers
 that are not run containers, then we use the cardinality to determine the type: a
-cardinality of up to 4096 indicates an array container whereas a cardinality above
+cardinality of up and including 4096 indicates an array container whereas a cardinality above
 4096 indicates a bitset container.
 
 ### 3. Offset header
