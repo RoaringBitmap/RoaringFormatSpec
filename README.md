@@ -71,10 +71,10 @@ The below diagram represents a storage file containing both run containers and t
 
 ### 1. Cookie header
 
-The cookie header spans either 32 bits or 64 bits.
+The cookie header spans either 64 bits or 32 bits followed by a variable number of bytes.
 
-1. If the first 32 bits take the value SERIAL_COOKIE_NO_RUNCONTAINER, then no container part of the Roaring bitmap can be of type "run" (only array and bitset containers are allowed). When the cookie has this particular value, the next 32 bits are used to store an integer representing the number of containers. If the bitmap is empty (i.e., it has no container), then you should choose this cookie header.
-2. The 16 least significant bits of the 32-bit cookie have value SERIAL_COOKIE. In that case, the 16 most significant bits of the 32-bit cookie are used to store the number of containers minus 1. That is, if you shift right by 16 the cookie and add 1, you get the number of containers. Let ``size`` be the number of containers. Then we store ``(size + 7) / 8`` bytes, following the initial 32 bits, as a bitset to indicate whether each of the containers is a run container (bit set to 1) or not (bit set to 0). The first (least significant) bit of the first byte corresponds to the first stored container and so forth.
+1. If the first 32 bits take the value SERIAL_COOKIE_NO_RUNCONTAINER, then no container part of the Roaring bitmap can be of type "run" (only array and bitset containers are allowed). When the cookie has this particular value, the next 32 bits are used to store an integer representing the number of containers. If the bitmap is empty (i.e., it has no container), then you should choose this cookie header. In this scenario, the cookie header uses 64 bits.
+2. The 16 least significant bits of the 32-bit cookie have value SERIAL_COOKIE. In that case, the 16 most significant bits of the 32-bit cookie are used to store the number of containers minus 1. That is, if you shift right by 16 the cookie and add 1, you get the number of containers. Let ``size`` be the number of containers. Then we store ``(size + 7) / 8`` bytes, following the initial 32 bits, as a bitset to indicate whether each of the containers is a run container (bit set to 1) or not (bit set to 0). The first (least significant) bit of the first byte corresponds to the first stored container and so forth. In this scenario, the cookie header uses 32 bits followed by ``(size + 7) / 8`` bytes.
 
 Thus it follows that the least significant 16 bits of the first 32 bits of a serialized bitmaps should either have the value SERIAL_COOKIE_NO_RUNCONTAINER or the value SERIAL_COOKIE. In other cases, we should abort the decoding.
 
