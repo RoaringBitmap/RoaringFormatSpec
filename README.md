@@ -259,3 +259,10 @@ It may reach better performances (compression and/or computation). But as of 202
 
 Java Roaring bitmaps implementation offers an [``Map``-based 64-bit implementation](https://github.com/RoaringBitmap/RoaringBitmap/blob/master/RoaringBitmap/src/main/java/org/roaringbitmap/longlong/Roaring64NavigableMap.java) handling signed longs.
 It is not compatible with this serialization format (which does not handle signed keys).
+
+# Kaitai Struct Definitions
+
+See [roaringbitmap.ksy](roaringbitmap.ksy)/[roaringbitmap64.ksy](roaringbitmap64.ksy) for the [Kaitai Struct]
+definitions of the Roaring bitmap format for 32-bit and 64-bit implementations respectively.
+
+[Kaitai Struct]: https://kaitai.io/
