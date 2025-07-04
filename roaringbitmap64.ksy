@@ -11,7 +11,7 @@ meta:
   license: Apache-2.0
   endian: le
   imports:
-    - roaring_bitmap_32bit
+    - roaringbitmap
 
 
 seq:
