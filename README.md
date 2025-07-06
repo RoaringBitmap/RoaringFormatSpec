@@ -265,4 +265,7 @@ It is not compatible with this serialization format (which does not handle signe
 See [roaringbitmap.ksy](roaringbitmap.ksy)/[roaringbitmap64.ksy](roaringbitmap64.ksy) for the [Kaitai Struct]
 definitions of the Roaring bitmap format for 32-bit and 64-bit implementations respectively. (Offered on a best effort basis at this time.)
 
+We recommend testing your data files and our Kaitai struct definitions in the
+[Kaitai Web IDE](https://ide.kaitai.io/).
+
 [Kaitai Struct]: https://kaitai.io/
