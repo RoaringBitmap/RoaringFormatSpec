@@ -44,7 +44,7 @@ This should create the following data structure:
 ## `portable_bitmap64.bin`
 
 In a similar spirit, we created `portable_bitmap64.bin` from the following C program.
-It should be made of three buckets with indexes 0, 1, 2. Within each 'bucket', we should
+It should be made of three buckets with indexes 0, 1. Within each 'bucket', we should
 have the same content, a Roaring bitmap with run containers, bitset containers and array containers.
 
 ```c
