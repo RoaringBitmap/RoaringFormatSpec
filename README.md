@@ -248,7 +248,7 @@ tree are 32-bit Roaring bitmaps. The 32-bit Roaring bitmaps represent the least 
 
 All words are written using little endian encoding.
 
-- Write as long/uint64 the distinct number of buckets (restricted to integers in [0,4294967295]) (a.k.a the number of distinct keys being the most significant 32~bits of elements, leading to a four zero bytes padding).
+- Write as long/uint64 the distinct number of buckets (restricted to integers in [0,4294967295]) (a.k.a the number of distinct keys being the most significant 32~bits of elements, leading to a four zero bytes padding). In theory, it might be possible to have 4294967296 buckets but it is currently forbidden by the format. Such a bitmap would use an enormous amount of memory and would be impractical.
 - Iterate through buckets ordered by increasing keys (as unsigned integers), for each: 
 - first writing as int/uint32 the most significant 32~bits of the bucket (in [0,2^32-1])
 - second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
