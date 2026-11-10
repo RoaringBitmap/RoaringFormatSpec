@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roaring Bitmap Format Specification</title>
+<meta name="description" content="Specification of the portable serialization formats for 32-bit and 64-bit Roaring bitmaps.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./">Roaring<span>Format</span>Spec</a>
+  <nav>
+    <a href="https://roaringbitmap.org">roaringbitmap.org</a>
+    <a href="https://github.com/RoaringBitmap/RoaringFormatSpec">GitHub</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>The Roaring bitmap serialization format</h1>
+  <p>A portable, little-endian file format for compressed bitmaps, shared by the
+  C/C++, Java, Go and Rust implementations of Roaring and by the many systems
+  built on them. This page specifies the standard 32-bit format and its 64-bit
+  extension.</p>
+  <p class="actions">
+    <a class="button" href="#general-layout">Read the layout</a>
+    <a class="button ghost" href="#worked-example">See an example</a>
+    <a class="button ghost" href="https://github.com/RoaringBitmap/RoaringFormatSpec/tree/master/testdata">Test data</a>
+  </p>
+</section>
+
+<div class="layout">
+  <aside class="sidebar">
+    <details id="toc-box" open>
+      <summary>Contents</summary>
+      <nav id="toc">
+$table-of-contents$
+      </nav>
+    </details>
+  </aside>
+  <main class="content">
+$body$
+    <footer>
+      <p>Generated from
+      <a href="https://github.com/RoaringBitmap/RoaringFormatSpec/blob/master/README.md">README.md</a>.
+      Corrections and improvements are welcome as
+      <a href="https://github.com/RoaringBitmap/RoaringFormatSpec/pulls">pull requests</a>.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Keep the contents open on wide screens, collapsed by default on phones.
+  (function () {
+    var box = document.getElementById('toc-box');
+    var mq = window.matchMedia('(min-width: 960px)');
+    function sync() { box.open = mq.matches; }
+    sync();
+    mq.addEventListener('change', sync);
+    document.querySelectorAll('#toc a').forEach(function (a) {
+      a.addEventListener('click', function () { if (!mq.matches) box.open = false; });
+    });
+    // Highlight the section currently in view.
+    var links = {};
+    document.querySelectorAll('#toc a').forEach(function (a) {
+      links[decodeURIComponent(a.getAttribute('href').slice(1))] = a;
+    });
+    var heads = document.querySelectorAll('.content h1[id], .content h2[id], .content h3[id]');
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && links[e.target.id]) {
+          if (current) current.classList.remove('active');
+          current = links[e.target.id];
+          current.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    heads.forEach(function (h) { obs.observe(h); });
+  })();
+</script>
+</body>
+</html>

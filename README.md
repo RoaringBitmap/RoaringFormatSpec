@@ -1,5 +1,7 @@
 # RoaringFormatSpec : specification of the compressed-bitmap Roaring formats
 
+This specification is also available as a web site: https://roaringbitmap.github.io/RoaringFormatSpec/
+
 
 
 
