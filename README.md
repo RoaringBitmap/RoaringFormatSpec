@@ -9,6 +9,7 @@
     + [2. Descriptive header](#2-descriptive-header)
     + [3. Offset header](#3-offset-header)
     + [4. Container storage](#4-container-storage)
+  * [Worked example](#worked-example)
   * [Isomorphism to its binary representation](#isomorphism-to-its-binary-representation)
   * [Testing](#testing)
   * [Reference implementations](#reference-implementations)
@@ -19,6 +20,7 @@
   * [General layout](#general-layout-1)
   * [Unsigned longs in Java](#unsigned-longs-in-java)
   * [Alternative 64-bit implementations](#alternative-64-bit-implementations)
+- [Kaitai Struct Definitions](#kaitai-struct-definitions)
 
 
 # Standard 32-bit Roaring Bitmap
@@ -27,7 +29,7 @@
 Roaring bitmaps are used by several important systems:
 
 *   [Apache Lucene](http://lucene.apache.org/core/) and derivative systems such as Solr and [Elastic](https://www.elastic.co/),
-*   Metamarkets' [Druid](http://druid.io/),
+*   [Apache Druid](https://druid.apache.org),
 *   [Apache Spark](http://spark.apache.org),
 *   [Apache Hive](http://hive.apache.org),
 *   [Apache Tez](http://tez.apache.org),
@@ -45,9 +47,11 @@ Many of these systems use the following interoperable format.
 
 This specification assumes that you are familiar with Roaring bitmaps. Please refer to the following paper for details on the design rationale:
 
-- Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience, Software: Practice and Experience Volume 46, Issue 11, pages 1547-1569, November 2016
+- Daniel Lemire, Gregory Ssi-Yan-Kai, Owen Kaser, [Consistently faster and smaller compressed bitmaps with Roaring](https://arxiv.org/abs/1603.06549), Software: Practice and Experience, Volume 46, Issue 11, pages 1547-1569, November 2016
 
 Let us recap that Roaring bitmaps are designed to store sets of 32-bit (unsigned) integers. Thus a Roaring bitmap can contain up to 4294967296 integers. They are made of three types of 16-bit containers: array, bitset and run containers. There are between 1 and 65536 (inclusively) containers. Each container has a cardinality (value in [1, 65536]), and it has a 16-bit most significant value (also called "key") in [0,65536). All containers are non-empty.
+
+![A 32-bit value is split into a 16-bit key and a 16-bit low part; each container is an array, a bitset or a run container](figures/partition.svg)
 
 ## General layout
 
@@ -66,9 +70,9 @@ Throughout, we use the following constants :
 - SERIAL_COOKIE = 12347,
 - NO_OFFSET_THRESHOLD = 4
 
-The below diagram represents a storage file containing both run containers and the offset header.
+The diagram below summarizes the two possible layouts, depending on the cookie, and the encoding of each type of container. Parts with a dashed outline are optional.
 
-![Format diagram](diagram.png)
+![Layout of a serialized 32-bit Roaring bitmap](figures/layout.svg)
 
 ### 1. Cookie header
 
@@ -77,7 +81,7 @@ The cookie header spans either 64 bits or 32 bits followed by a variable number 
 1. If the first 32 bits take the value SERIAL_COOKIE_NO_RUNCONTAINER, then no container part of the Roaring bitmap can be of type "run" (only array and bitset containers are allowed). When the cookie has this particular value, the next 32 bits are used to store an integer representing the number of containers. If the bitmap is empty (i.e., it has no container), then you should choose this cookie header. In this scenario, the cookie header uses 64 bits.
 2. The 16 least significant bits of the 32-bit cookie have value SERIAL_COOKIE. In that case, the 16 most significant bits of the 32-bit cookie are used to store the number of containers minus 1. That is, if you shift right by 16 the cookie and add 1, you get the number of containers. Let ``size`` be the number of containers. Then we store ``(size + 7) / 8`` bytes, following the initial 32 bits, as a bitset to indicate whether each of the containers is a run container (bit set to 1) or not (bit set to 0). The first (least significant) bit of the first byte corresponds to the first stored container and so forth. In this scenario, the cookie header uses 32 bits followed by ``(size + 7) / 8`` bytes.
 
-Thus it follows that the least significant 16 bits of the first 32 bits of a serialized bitmaps should either have the value SERIAL_COOKIE_NO_RUNCONTAINER or the value SERIAL_COOKIE. In other cases, we should abort the decoding.
+Thus it follows that the least significant 16 bits of the first 32 bits of a serialized bitmap should either have the value SERIAL_COOKIE_NO_RUNCONTAINER or the value SERIAL_COOKIE. In other cases, we should abort the decoding.
 
 After scanning the cookie header, we know how many containers are present in the bitmap.
 
@@ -93,7 +97,7 @@ After scanning the descriptive header, we know the type of each container. Indee
 if the cookie took value SERIAL_COOKIE, then we had a bitset telling us which containers
 are run containers; otherwise, we know that there are no run containers. For the containers
 that are not run containers, then we use the cardinality to determine the type: a
-cardinality of up and including 4096 indicates an array container whereas a cardinality above
+cardinality of up to and including 4096 indicates an array container whereas a cardinality above
 4096 indicates a bitset container.
 
 ### 3. Offset header
@@ -110,14 +114,29 @@ with the cookie) for each container.
 
 The containers are then stored one after the other.
 - For array containers, we store a sorted list of 16-bit unsigned integer values corresponding to the array container. So if there are x values in the array container, 2 x bytes are used.
-- Bitset containers are stored using exactly 8KB using a bitset serialized with 64-bit words. Thus, for example, if value j is present, then word j/64 (starting at word 0) will have its (j%64) least significant bit set to 1 (starting at bit 0).
+- Bitset containers are stored using exactly 8192 bytes (8 KiB) using a bitset serialized with 64-bit words. Thus, for example, if value j is present, then word j/64 (starting at word 0) will have its (j%64) least significant bit set to 1 (starting at bit 0).
 - A run container is serialized as a 16-bit integer indicating the number of runs, followed by a pair of 16-bit values for each run. Runs are non-overlapping and sorted. Thus a run container with x runs will use 2 + 4 x bytes. Each pair of 16-bit values contains the starting index of the run followed by the length of the run minus 1. That is,  we interleave values and lengths, so that if you have the values 11,12,13,14,15, you store that as 11,4 where 4 means that beyond 11 itself, there are  4 contiguous values that follow. Other example: e.g., 1,10, 20,0, 31,2 would be a concise representation of 1, 2, ..., 11, 20, 31, 32, 33
+
+## Worked example
+
+Consider the set made of the values 5, 10 and 1000, together with all 100 values in [131072, 131172), that is, from 2 × 65536 to 2 × 65536 + 99. The first three values share the key 0 and form an array container. The other values share the key 2 and form a run container made of a single run. With run containers, we use the SERIAL_COOKIE cookie. Since there are only two containers (fewer than NO_OFFSET_THRESHOLD), there is no offset header. The bitmap is serialized in 25 bytes:
+
+![Byte-by-byte serialization of a small bitmap](figures/example.svg)
+
+```
+3b 30 01 00   cookie: 12347 | ((2 - 1) << 16)
+02            run flags: container 1 is a run container
+00 00 02 00   key 0, cardinality - 1 = 2
+02 00 63 00   key 2, cardinality - 1 = 99
+05 00 0a 00 e8 03   array container: 5, 10, 1000
+01 00 00 00 63 00   run container: 1 run, start 0, length - 1 = 99
+```
 
 ## Isomorphism to its binary representation
 
 A bitmap without run container can be stored in two different manners, with the SERIAL_COOKIE_NO_RUNCONTAINER cookie or with the SERIAL_COOKIE cookie. This means that you may find two different serialization for the exact same bitmap. Thus, in general, you may load a bitmap from disk, reading X bytes, and then write it back, using Y bytes, and X and Y could be different.
 
-In practice, implementations can ensure isomorphism by, for example, always serializing bitmaps without run containers with the SERIAL_COOKIE_NO_RUNCONTAINER cookie. Yet if you load serialization bitmaps from another source, you should pay attention.
+In practice, implementations can ensure isomorphism by, for example, always serializing bitmaps without run containers with the SERIAL_COOKIE_NO_RUNCONTAINER cookie. Yet if you load serialized bitmaps from another source, you should pay attention.
 
 ## Testing
 
@@ -128,6 +147,7 @@ At a minimum, all Roaring implementations should be able to parse the two files 
 - C/C++: https://github.com/RoaringBitmap/CRoaring
 - Java: https://github.com/RoaringBitmap/RoaringBitmap
 - Go: https://github.com/RoaringBitmap/roaring
+- Rust: https://github.com/RoaringBitmap/roaring-rs
 
 
 ## Sample Java source code
@@ -235,29 +255,31 @@ At a minimum, all Roaring implementations should be able to parse the two files 
 
 Java lacks native unsigned integers, but integers are still considered to be unsigned within Roaring, and ordered  according to  ``Integer.compareUnsigned``. 
 
-For 32-bit integers in [0,2147483647], the unsigned and signed integers are undistinguisable since Java relies a 32-bit two's complement format for its ``int`` type.
+For 32-bit integers in [0,2147483647], the unsigned and signed integers are indistinguishable since Java relies on a 32-bit two's complement format for its ``int`` type.
 
 # Extension for 64-bit implementations
 
 Some Roaring bitmap implementations may offer a 64-bit implementation. This section proposes a portable format, compatible with some (but not all) 
 64-bit implementations. This format is naturally compatible with implementations based on a conventional red-black-tree (as the serialization format 
-is similar to the in-memory layout). The keys would be 32-bit integers representing the most significant 32~bits of elements whereas the values of the 
+is similar to the in-memory layout). The keys would be 32-bit integers representing the most significant 32 bits of elements whereas the values of the 
 tree are 32-bit Roaring bitmaps. The 32-bit Roaring bitmaps represent the least significant bits of a set of elements.
 
 ## General layout
 
 All words are written using little endian encoding.
 
-- Write as long/uint64 the distinct number of buckets (restricted to integers in [0,4294967295]) (a.k.a the number of distinct keys being the most significant 32~bits of elements, leading to a four zero bytes padding). In theory, it might be possible to have 4294967296 buckets but it is currently forbidden by the format. Such a bitmap would use an enormous amount of memory and would be impractical.
-- Iterate through buckets ordered by increasing keys (as unsigned integers), for each: 
-- first writing as int/uint32 the most significant 32~bits of the bucket (in [0,2^32-1])
-- second writing the 32-bit Roaring bitmaps representing the least significant bits of a set of elements
+- Write as long/uint64 the number of buckets (restricted to integers in [0,4294967295]), that is, the number of distinct keys, a key being the most significant 32 bits of an element. Since the count fits in 32 bits, the four most significant bytes are zero. In theory, it might be possible to have 4294967296 buckets but it is currently forbidden by the format. Such a bitmap would use an enormous amount of memory and would be impractical.
+- Iterate through buckets ordered by increasing keys (as unsigned integers), for each:
+  - first write as int/uint32 the key, that is, the most significant 32 bits of the elements in the bucket (in [0,2^32-1]);
+  - second write the 32-bit Roaring bitmap (using the standard format above) representing the least significant 32 bits of the elements in the bucket.
+
+![Layout of the portable 64-bit format](figures/layout64.svg)
 
 ## Unsigned longs in Java
 
 Java lacks native unsigned longs, but longs are still considered to be unsigned within Roaring, and ordered according to ``Long.compareUnsigned``. 
 
-For 64-bit integers in [0,18446744073709551616], the unsigned and signed longs are undistinguisable since Java relies a 64-bit two's complement format for its ``long`` type.
+For 64-bit integers in [0,9223372036854775807], the unsigned and signed longs are indistinguishable since Java relies on a 64-bit two's complement format for its ``long`` type.
 
 ## Alternative 64-bit implementations
 

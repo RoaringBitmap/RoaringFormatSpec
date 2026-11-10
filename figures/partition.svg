@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="330" viewBox="0 0 860 330">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5b1"/></marker></defs>
+<rect width="860" height="330" rx="10" fill="#ffffff"/>
+<text x="30" y="34" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#1f2933" font-weight="bold">A 32-bit value is split into a 16-bit key and a 16-bit low part</text>
+<text x="50" y="86" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" fill="#1f2933" font-weight="normal">x =</text>
+<rect x="60" y="62" width="220" height="36" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="170" y="85" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">high 16 bits</text>
+<rect x="280" y="62" width="220" height="36" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="390" y="85" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">low 16 bits</text>
+<text x="170" y="116" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">key = x &gt;&gt; 16</text>
+<text x="390" y="116" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">x &amp; 0xFFFF</text>
+<text x="530" y="78" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">Values sharing a key go into the same</text>
+<text x="530" y="95" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">container, which stores only their low</text>
+<text x="530" y="112" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">16 bits. Containers are sorted by key.</text>
+<rect x="30" y="165" width="240" height="130" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="150.0" y="193" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1f2933" font-weight="bold">Array container</text>
+<text x="150.0" y="225" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">cardinality ≤ 4096</text>
+<text x="150.0" y="247" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">sorted 16-bit values</text>
+<text x="150.0" y="269" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">2 bytes per value</text>
+<rect x="295" y="165" width="240" height="130" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="415.0" y="193" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1f2933" font-weight="bold">Bitset container</text>
+<text x="415.0" y="225" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">cardinality &gt; 4096</text>
+<text x="415.0" y="247" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">65536 bits = 1024 words</text>
+<text x="415.0" y="269" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">always 8192 bytes</text>
+<rect x="560" y="165" width="240" height="130" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="680.0" y="193" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1f2933" font-weight="bold">Run container</text>
+<text x="680.0" y="225" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">marked in the run flags</text>
+<text x="680.0" y="247" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">sorted runs (start, length−1)</text>
+<text x="680.0" y="269" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">4 bytes per run, plus 2</text>
+<path d="M170,124 L170,153" fill="none" stroke="#9aa5b1" stroke-width="1.2" marker-end="url(#arrow)"/>
+</svg>

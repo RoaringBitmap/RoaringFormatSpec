@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="870" height="190" viewBox="0 0 870 190">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5b1"/></marker></defs>
+<rect width="870" height="190" rx="10" fill="#ffffff"/>
+<text x="30" y="32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#1f2933" font-weight="bold">Portable 64-bit format (m buckets, little endian)</text>
+<rect x="30" y="62" width="130" height="40" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="95.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">m</text>
+<rect x="160" y="62" width="110" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="215.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">key<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="270" y="62" width="200" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="370.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">32-bit Roaring bitmap<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="470" y="62" width="110" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="525.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">key<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="580" y="62" width="200" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="680.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">32-bit Roaring bitmap<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="780" y="62" width="60" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="810.0" y="86.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<path d="M30,104 L30,110 L160,110 L160,104" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+<text x="95.0" y="125" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">8 bytes (uint64)</text>
+<path d="M160,104 L160,110 L270,110 L270,104" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="215.0" y="125" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4 bytes</text>
+<path d="M270,104 L270,110 L470,110 L470,104" fill="none" stroke="#64748b" stroke-width="1.2"/>
+<text x="370.0" y="125" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">variable</text>
+<path d="M470,104 L470,110 L580,110 L580,104" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="525.0" y="125" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4 bytes</text>
+<path d="M580,104 L580,110 L780,110 L780,104" fill="none" stroke="#64748b" stroke-width="1.2"/>
+<text x="680.0" y="125" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">variable</text>
+<text x="30" y="150" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">Each bucket holds the elements sharing the same high 32 bits (the key);</text>
+<text x="30" y="168" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">buckets are written by increasing key, each followed by a standard 32-bit Roaring bitmap of the low 32 bits.</text>
+</svg>

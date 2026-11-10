@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="560" viewBox="0 0 820 560">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5b1"/></marker></defs>
+<rect width="820" height="560" rx="10" fill="#ffffff"/>
+<text x="30" y="32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#1f2933" font-weight="bold">Serialized 32-bit Roaring bitmap (n containers, little endian)</text>
+<text x="30" y="64" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#5f6b7a" font-weight="bold">(a) cookie = SERIAL_COOKIE (12347): run containers allowed</text>
+<rect x="30" y="80" width="90" height="40" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="75.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">cookie</text>
+<rect x="120" y="80" width="86" height="40" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="163.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">run flags</text>
+<rect x="206" y="80" width="60" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="236.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">key<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="266" y="80" width="70" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="301.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">card<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan>−1</text>
+<rect x="336" y="80" width="36" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="354.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="372" y="80" width="60" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="402.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">off<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="432" y="80" width="60" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="462.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">off<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="492" y="80" width="36" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="510.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="528" y="80" width="110" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="583.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">container<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="638" y="80" width="110" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="693.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">container<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="748" y="80" width="40" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="768.0" y="104.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<path d="M30,122 L30,128 L120,128 L120,122" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+<text x="75.0" y="143" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4 bytes</text>
+<text x="30" y="162" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="11" text-anchor="start" fill="#5f6b7a" font-weight="normal">cookie = 12347 | ((n − 1) &lt;&lt; 16)</text>
+<path d="M120,122 L120,128 L206,128 L206,122" fill="none" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="163.0" y="143" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">⌈n/8⌉ bytes</text>
+<path d="M206,122 L206,128 L372,128 L372,122" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="289.0" y="143" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4n bytes</text>
+<path d="M372,122 L372,128 L528,128 L528,122" fill="none" stroke="#d97706" stroke-width="1.2"/>
+<text x="450.0" y="143" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4n bytes, only if n ≥ 4</text>
+<path d="M528,122 L528,128 L788,128 L788,122" fill="none" stroke="#64748b" stroke-width="1.2"/>
+<text x="658.0" y="143" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">variable</text>
+<text x="30" y="209" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#5f6b7a" font-weight="bold">(b) cookie = SERIAL_COOKIE_NO_RUNCONTAINER (12346): no run containers</text>
+<rect x="30" y="225" width="90" height="40" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="75.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">cookie</text>
+<rect x="120" y="225" width="86" height="40" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="163.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">n</text>
+<rect x="206" y="225" width="60" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="236.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">key<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="266" y="225" width="70" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="301.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">card<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan>−1</text>
+<rect x="336" y="225" width="36" height="40" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="354.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="372" y="225" width="60" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="402.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">off<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="432" y="225" width="60" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="462.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">off<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="492" y="225" width="36" height="40" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="510.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="528" y="225" width="110" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="583.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">container<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="638" y="225" width="110" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="693.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">container<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="748" y="225" width="40" height="40" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="768.0" y="249.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<path d="M30,267 L30,273 L120,273 L120,267" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+<text x="75.0" y="288" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4 bytes</text>
+<path d="M120,267 L120,273 L206,273 L206,267" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+<text x="163.0" y="288" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4 bytes</text>
+<path d="M206,267 L206,273 L372,273 L372,267" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="289.0" y="288" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4n bytes</text>
+<path d="M372,267 L372,273 L528,273 L528,267" fill="none" stroke="#d97706" stroke-width="1.2"/>
+<text x="450.0" y="288" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">4n bytes, always</text>
+<path d="M528,267 L528,273 L788,273 L788,267" fill="none" stroke="#64748b" stroke-width="1.2"/>
+<text x="658.0" y="288" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal">variable</text>
+<rect x="30" y="318" width="16" height="16" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="54" y="331" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#1f2933" font-weight="normal">Cookie header: format and container count</text>
+<rect x="460" y="318" width="16" height="16" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="484" y="331" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#1f2933" font-weight="normal">Run flags: bit i set ⇔ container i is a run container</text>
+<rect x="30" y="344" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="54" y="357" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#1f2933" font-weight="normal">Descriptive header: 16-bit key, 16-bit cardinality − 1</text>
+<rect x="460" y="344" width="16" height="16" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="484" y="357" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#1f2933" font-weight="normal">Offset header: 32-bit byte offset of each container</text>
+<text x="30" y="402" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#5f6b7a" font-weight="bold">Container encodings</text>
+<text x="30" y="441" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#1f2933" font-weight="bold">Array</text>
+<rect x="100" y="420" width="56" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="128.0" y="439.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">v<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="156" y="420" width="56" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="184.0" y="439.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">v<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="212" y="420" width="40" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="232.0" y="439.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="252" y="420" width="56" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="280.0" y="439.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">v<tspan dy="3.6" font-size="9">k−1</tspan><tspan dy="-3.6">​</tspan></text>
+<text x="324" y="440" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">2k bytes for cardinality k ≤ 4096; sorted 16-bit values</text>
+<text x="30" y="487" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#1f2933" font-weight="bold">Bitset</text>
+<rect x="100" y="466" width="64" height="30" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="132.0" y="485.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">w<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="164" y="466" width="64" height="30" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="196.0" y="485.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">w<tspan dy="3.6" font-size="9">1</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="228" y="466" width="40" height="30" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="248.0" y="485.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<rect x="268" y="466" width="64" height="30" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="300.0" y="485.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">w<tspan dy="3.6" font-size="9">1023</tspan><tspan dy="-3.6">​</tspan></text>
+<text x="348" y="486" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">8192 bytes: 1024 64-bit words; value j is bit j % 64 of word j / 64</text>
+<text x="30" y="533" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#1f2933" font-weight="bold">Run</text>
+<rect x="100" y="512" width="42" height="30" rx="3" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="121.0" y="531.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">r</text>
+<rect x="142" y="512" width="60" height="30" rx="3" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="172.0" y="531.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">start<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan></text>
+<rect x="202" y="512" width="70" height="30" rx="3" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="237.0" y="531.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">len<tspan dy="3.6" font-size="9">0</tspan><tspan dy="-3.6">​</tspan>−1</text>
+<rect x="272" y="512" width="40" height="30" rx="3" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="292.0" y="531.32" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933" font-weight="normal">…</text>
+<text x="328" y="532" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">2 + 4r bytes for r runs; runs sorted, non-overlapping</text>
+</svg>

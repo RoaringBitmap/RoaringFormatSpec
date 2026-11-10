@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="835" height="200" viewBox="0 0 835 200">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5b1"/></marker></defs>
+<rect width="835" height="200" rx="10" fill="#ffffff"/>
+<text x="30" y="30" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#1f2933" font-weight="bold">Example: {5, 10, 1000} ∪ [131072, 131172) in 25 bytes</text>
+<text x="32" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">0</text>
+<text x="156" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">4</text>
+<text x="280" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">8</text>
+<text x="404" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">12</text>
+<text x="528" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">16</text>
+<text x="652" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">20</text>
+<text x="776" y="68" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="start" fill="#5f6b7a" font-weight="normal">24</text>
+<rect x="30" y="76" width="31" height="34" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<text x="45.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">3b</text>
+<rect x="61" y="76" width="31" height="34" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<text x="76.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">30</text>
+<rect x="92" y="76" width="31" height="34" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<text x="107.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">01</text>
+<rect x="123" y="76" width="31" height="34" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<text x="138.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<path d="M32,113 L32,119 L152,119 L152,113" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+<text x="92.0" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="92.0" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">cookie 12347</text>
+<text x="92.0" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">n − 1 = 1</text>
+<rect x="154" y="76" width="31" height="34" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+<text x="169.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">02</text>
+<path d="M156,113 L156,119 L183,119 L183,113" fill="none" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="169.5" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="169.5" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">run flags</text>
+<text x="169.5" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">0b10</text>
+<rect x="185" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="200.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="216" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="231.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="247" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="262.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">02</text>
+<rect x="278" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="293.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<path d="M187,113 L187,119 L307,119 L307,113" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="247.0" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="247.0" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">key 0</text>
+<text x="247.0" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">card − 1 = 2</text>
+<rect x="309" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="324.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">02</text>
+<rect x="340" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="355.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="371" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="386.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">63</text>
+<rect x="402" y="76" width="31" height="34" rx="2" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+<text x="417.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<path d="M311,113 L311,119 L431,119 L431,113" fill="none" stroke="#0d9488" stroke-width="1.2"/>
+<text x="371.0" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="371.0" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">key 2</text>
+<text x="371.0" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">card − 1 = 99</text>
+<rect x="433" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="448.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">05</text>
+<rect x="464" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="479.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="495" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="510.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">0a</text>
+<rect x="526" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="541.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="557" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="572.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">e8</text>
+<rect x="588" y="76" width="31" height="34" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="603.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">03</text>
+<path d="M435,113 L435,119 L617,119 L617,113" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+<text x="526.0" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="526.0" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">array container</text>
+<text x="526.0" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">5, 10, 1000</text>
+<rect x="619" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="634.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">01</text>
+<rect x="650" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="665.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="681" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="696.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="712" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="727.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<rect x="743" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="758.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">63</text>
+<rect x="774" y="76" width="31" height="34" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="789.5" y="98.0" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#1f2933" font-weight="normal">00</text>
+<path d="M621,113 L621,119 L803,119 L803,113" fill="none" stroke="#db2777" stroke-width="1.2"/>
+<text x="712.0" y="134" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5f6b7a" font-weight="normal"></text>
+<text x="712.0" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">run container: 1 run</text>
+<text x="712.0" y="151" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5f6b7a" font-weight="normal">start 0, length − 1 = 99</text>
+<text x="30" y="185" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#5f6b7a" font-weight="normal">No offset header: the cookie is SERIAL_COOKIE and n = 2 &lt; NO_OFFSET_THRESHOLD = 4.</text>
+</svg>
